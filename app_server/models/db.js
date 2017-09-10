@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var gracefulShutdown;
-var dbURI = 'mongodb://localhost/workout';
-//if (process.env.NODE_ENV === 'production') {
+var dbURI = 'mongodb://localhost/programs';
+if (process.env.NODE_ENV === 'production') {
     //dbURI = process.env.MONGOLAB_URI;
-//}
+    dbURI = "mongodb://workouter:nosiemci1!@ds133004.mlab.com:33004/workout";
+}
 
 mongoose.connect(dbURI);
 

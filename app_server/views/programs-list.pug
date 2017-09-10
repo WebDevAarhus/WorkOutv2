@@ -1,0 +1,24 @@
+extends layout
+include _includes/sharedHTMLfunctions
+
+block content
+  #banner.page-header
+    .row
+      .col-lg-6
+        h1= pageHeader.title
+         small &nbsp;#{pageHeader.strapline}
+  .row
+    .col-xs-12.col-sm-8
+      .row.list-group
+        each program in programs
+          .col-xs-12.list-group-item
+            h4 
+              a(href="/program")= program.name
+              small &nbsp;
+                +outputDifficulty(program.difficulty)
+              span.badge.pull-right.badge-default= program.difficulty
+            p.author= program.author
+           
+    .col-xs-12.col-sm-4 
+      p.lead= sidebar
+      a.btn.btn-default.pull-right(href="/new") Add program

@@ -1,0 +1,31 @@
+extends layout
+
+include _includes/sharedHTMLfunctions
+
+block content
+  .row.page-header: .col-lg-12
+      h1= pageHeader.title
+  .row
+    .col-xs-12.col-md-9
+      .row
+        .col-xs-12.col-sm-6
+          p.rating
+            +outputDifficulty(program.difficulty)
+          p= program.author
+      .row
+        .col-xs-12
+          .panel.panel-primary.review-panel
+            .panel-heading
+              a.btn.btn-default.pull-right(href="/program/exercise/new") Add exercise
+              h2.panel-title Exercises
+            .panel-body.review-container
+              each exercise in program.exercises
+                .row
+                  .exercise
+                    .well.well-sm.exercise-header
+                      span.exerciseName  #{exercise.name}
+                      small.exerciseReps reps/time: #{exercise.reps}
+                    .col-xs-12
+                      p !{(exercise.description).replace(/\n/g, '<br/>')}
+    .col-xs-12.col-md-3
+      p.lead #{program.name} 

@@ -1,0 +1,5 @@
+mixin outputDifficulty(difficulty)
+  - for (var i = 1; i <= difficulty; i++)
+    span.glyphicon.glyphicon-star
+  - for (i = difficulty; i < 5; i++)
+    span.glyphicon.glyphicon-star-empty

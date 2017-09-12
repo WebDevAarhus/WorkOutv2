@@ -48,7 +48,7 @@ module.exports.addProgramForm = function(req,res){
     })
 };
 
-/*actual program creation page*/
+/*POST actual program creation page*/
 module.exports.createProgram = function(req,res){
     Prog
     .create({
@@ -57,13 +57,15 @@ module.exports.createProgram = function(req,res){
         difficulty: req.body.difficulty
     },function(err, program){
         if(!err){
-            res.render('program-added', {
+            res.redirect('/');
+            
+           /* res.render('program-added', {
                 title:'Adding successful',
                 pageHeader:{
                     title:'You have created a program'
                 },
                 program
-            })
+            })*/
         }
     });
    

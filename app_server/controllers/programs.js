@@ -3,7 +3,9 @@ var Prog = mongoose.model('Program');
 
 /*GET programs page*/
 module.exports.programsList = function(req,res){
-    Prog.find({},[],function(err, programs){
+    Prog
+    .find({})
+    .exec(function(err, programs){
         res.render('programs-list', {
             title:'Programs list',
             sidebar: 'Hello and welcome to programs list page!',
@@ -11,19 +13,6 @@ module.exports.programsList = function(req,res){
                 strapline: "some strapline?"
             },
             programs
-            /*
-            programs:[
-                {
-                    name:'Program1',
-                    author: 'MR',
-                    difficulty:5
-                },
-                {
-                    name:'Program2',
-                    author: 'HH',
-                    difficulty:4
-                }
-            ]     */ 
         });
     });
     
@@ -31,36 +20,27 @@ module.exports.programsList = function(req,res){
 
 /*GET program info page*/
 module.exports.programInfo = function(req,res){
-    Prog.findOne({},[],function(err,program){
-        res.render('program-info', {
-            title:'Program info',
-            pageHeader:{
-                title:'Program 1',
-                author:'MR'
-            },
-            program/*
-            program:{
-                name: 'Program1',
-                difficulty: 5,
-                exercises:[
-                    {
-                        name:'Squat',
-                        repstime:20,
-                        description:'Bend knees and on da floor'
-
-                    }
-                ]
-
-            }*/
-        })
-    
+    var programid = req.params.programid;
+    Prog
+    .findById(programid)
+    .exec(function(err, program){
+        if(!err){
+            res.render('program-info', {
+                title:'Program info',
+                pageHeader:{
+                    title:program.name,
+                    author:program.author
+                },
+                program
+            });
+        }
     });
 };
-
+    
 /*GET add program page*/
-module.exports.addProgram = function(req,res){
+module.exports.addProgramForm = function(req,res){
     res.render('program-form', {
-        title:'add program',
+        title:'Add program',
         pageHeader:{
             title:'Add a program'
         },
@@ -68,13 +48,24 @@ module.exports.addProgram = function(req,res){
     })
 };
 
-/*GET add exercise page*/
-module.exports.addExercise = function(req,res){
-    res.render('program-exercise-form', {
-        title:'Add exercise',
-        pageHeader:{
-            title:'Program 1 exercise'
+/*actual program creation page*/
+module.exports.createProgram = function(req,res){
+    Prog
+    .create({
+        name: req.body.name,
+        author: req.body.author,
+        difficulty: req.body.difficulty
+    },function(err, program){
+        if(!err){
+            res.render('program-added', {
+                title:'Adding successful',
+                pageHeader:{
+                    title:'You have created a program'
+                },
+                program
+            })
         }
-        
-    })
+    });
+   
 };
+

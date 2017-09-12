@@ -13,7 +13,7 @@ block content
         each program in programs
           .col-xs-12.list-group-item
             h4 
-              a(href="/program")= program.name
+              a(href="/programs/" + program._id)= program.name
               small &nbsp;
                 +outputDifficulty(program.difficulty)
               span.badge.pull-right.badge-default= program.difficulty
@@ -21,4 +21,4 @@ block content
            
     .col-xs-12.col-sm-4 
       p.lead= sidebar
-      a.btn.btn-default.pull-right(href="/new") Add program
+      a.btn.btn-default.pull-right(href="/programs/new") Add program

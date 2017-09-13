@@ -3,11 +3,12 @@ var gracefulShutdown;
 var dbURI = 'mongodb://localhost/programs';
 if (process.env.NODE_ENV === 'production') {
     //dbURI = process.env.MONGOLAB_URI;
-    dbURI = "mongodb://workouter:nosiemci1!@ds133004.mlab.com:33004/workout";
+    dbURI = "mongodb://masterworkouter:letsW0rkOut@ds127864.mlab.com:27864/workout";
+    //dbURI = "mongodb://workouter:nosiemci1!@ds133004.mlab.com:33004/workout";
 }
 
 mongoose.connect(dbURI);
-
+console.log("uri ------" + dbURI);
 // CONNECTION EVENTS
 mongoose.connection.on('connected', function() {
     console.log('Mongoose connected to ' + dbURI);

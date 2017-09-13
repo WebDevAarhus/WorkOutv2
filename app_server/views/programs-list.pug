@@ -16,7 +16,7 @@ block content
               a(href="/programs/" + program._id)= program.name
               small &nbsp;
                 +outputDifficulty(program.difficulty)
-              span.badge.pull-right.badge-default= program.difficulty
+              span.badge.pull-right.badge-default difficulty: #{program.difficulty}
             p.author= program.author
            
     .col-xs-12.col-sm-4 

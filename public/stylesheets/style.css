@@ -1,5 +1,7 @@
 .exercise {padding-bottom: 5px;}
 .panel-body.review-container {padding-top: 0;}
 .exercise-header {margin-bottom: 10px;}
-.exerciseName {margin: 0 5px;}
-.exerciseReps {color: #ccc;}
+.exerciseName {margin: 0 5px; color: #000; font-size: 20px}
+.exerciseReps {color: #999;}
+.rating {color: #999;}
+.author {color: #555; font-size:20px}

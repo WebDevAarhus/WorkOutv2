@@ -9,9 +9,9 @@ block content
     .col-xs-12.col-md-9
       .row
         .col-xs-12.col-sm-6
-          p.rating
+          p.rating difficulty &nbsp;
             +outputDifficulty(program.difficulty)
-          p program author: #{program.author}
+          p program author: &nbsp; #[span.author #{program.author}]
       .row
         .col-xs-12
           .panel.panel-primary.review-panel
@@ -30,4 +30,4 @@ block content
                     .col-xs-12
                       p !{(exercise.description).replace(/\n/g, '<br/>')}
     .col-xs-12.col-md-3
-      p.lead #{program.name} 
+      p.lead Don't wait any longer and do #{program.name} now!

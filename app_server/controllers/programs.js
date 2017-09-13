@@ -10,7 +10,7 @@ module.exports.programsList = function(req,res){
             title:'Programs list',
             sidebar: 'Hello and welcome to programs list page!',
             pageHeader:{
-                strapline: "some strapline?"
+                strapline: "Below you can see the workouts list"
             },
             programs
         });
@@ -58,14 +58,11 @@ module.exports.createProgram = function(req,res){
     },function(err, program){
         if(!err){
             res.redirect('/');
-            
-           /* res.render('program-added', {
-                title:'Adding successful',
-                pageHeader:{
-                    title:'You have created a program'
-                },
-                program
-            })*/
+        }else{
+            res.render('generic-text',{
+                title:'arrrrrr',
+                text:'please try filling the form once more, you put the wrong data'
+            })
         }
     });
    

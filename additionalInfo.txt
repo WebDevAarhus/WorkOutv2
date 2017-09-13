@@ -1,4 +1,0 @@
-1. there is no error controll (no checks for empty form fields, if set number is really a number etc)- we could add that
-2. texts are a bit random (strapline)
-3. css should be polished
-this line is just for testing

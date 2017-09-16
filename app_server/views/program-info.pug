@@ -6,7 +6,7 @@ block content
   .row.page-header: .col-lg-12
       h1= pageHeader.title
   .row
-    .col-xs-12.col-md-9
+    .col-xs-12.col-md-8
       .row
         .col-xs-12.col-sm-6
           p.rating difficulty &nbsp;
@@ -14,11 +14,11 @@ block content
           p program author: &nbsp; #[span.author #{program.author}]
       .row
         .col-xs-12
-          .panel.panel-primary.review-panel
+          .panel.panel-primary.exercise-panel
             .panel-heading
               a.btn.btn-default.pull-right(href="/programs/"+program._id+"/exercises/new") Add exercise
               h2.panel-title Exercises
-            .panel-body.review-container
+            .panel-body.exercise-container
               each exercise in program.exercises
                 .row
                   .exercise
@@ -29,5 +29,16 @@ block content
                       small.exerciseReps sets: #{exercise.sets}
                     .col-xs-12
                       p !{(exercise.description).replace(/\n/g, '<br/>')}
-    .col-xs-12.col-md-3
+    .col-xs-12.col-md-4
       p.lead Don't wait any longer and do #{program.name} now!
+      .button-container
+        a.btn.btn-default.pull-right(href="/programs/"+program._id+"/logs/new") Log workout
+      .logs-container
+        each log in program.logs
+          .row
+            .log
+              span.logUsername  #{log.username}
+              | &nbsp;
+              small.date completed on: 
+                +formatDate(log.date)
+              

@@ -6,25 +6,23 @@ var sendJsonResponse = function(res, status, content) {
     res.json(content);
 };
 
-var doAddExercise = function(req, res, program){
+var doAddLog = function(req, res, program){
     if(!program){
         sendJsonResponse(res, 404,{
             "message":"location not found"
         });
     }else{
-        program.exercises.push({
-            name: req.body.name,
-            repstime: req.body.repstime,
-            sets: req.body.sets,
-            description: req.body.description
+        program.logs.push({
+            username: req.body.username,
+            date: req.body.date
             
         });
 
         program.save(function(err, program){
-            var addedExercise;
+            var addedLog;
             if(!err){
-                addedExercise = program.exercises[program.exercises.length-1];
-                sendJsonResponse(res, 201, addedExercise);
+                addedLog = program.logs[program.logs.length-1];
+                sendJsonResponse(res, 201, addedLog);
             }else{
                 sendJsonResponse(res, 400, err);
             }
@@ -32,16 +30,17 @@ var doAddExercise = function(req, res, program){
     }
 }
 
-/*POST actual exercise creation */
-module.exports.createExercise = function(req,res){
+/*POST actual log creation */
+module.exports.createLog = function(req,res){
+    console.log('>>> in createLog');
     var programid = req.params.programid;
     if(programid){
         Prog
         .findById(programid)
-        .select('exercises')
+        .select('logs')
         .exec(function(err, program){
             if(!err){
-                doAddExercise(req, res, program);
+                doAddLog(req, res, program);
             }else{
                 sendJsonResponse(res, 400, err);
             }
@@ -54,7 +53,7 @@ module.exports.createExercise = function(req,res){
     }
 };
 /*
-module.exports.exerciseInfo = function(req,res){
+module.exports.logInfo = function(req,res){
     if(req.params && req.params.programid && req.params.exerciseid){
         Prog
         .findById(req.params.programid)

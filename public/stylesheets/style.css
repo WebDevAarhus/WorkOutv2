@@ -5,3 +5,7 @@
 .exerciseReps {color: #999;}
 .rating {color: #999;}
 .author {color: #555; font-size:20px}
+.log {margin-top:0px; margin-bottom:0px; padding:10px;
+    box-shadow: 0 0px 1px 0 grey inset;  
+}
+.button-container {margin-bottom:80px}

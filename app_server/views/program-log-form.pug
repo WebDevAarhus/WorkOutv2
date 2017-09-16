@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .row.page-header
+    .col-lg-12
+      h1= pageHeader.title
+  .row
+    .col-xs-12.col-md-6
+      form.form-horizontal(id="addLogForm", action="", method="post", role="form")
+        -if(error == "val")
+          .alert.alert-danger(role="alert") All fields required, please try again
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="username") User name
+          .col-xs-12.col-sm-10
+            input#username.form-control(name="username")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="date") Date of completion
+          .col-xs-12.col-sm-5
+            input#date.form-control(name="date", type="date")
+        button.btn.btn-default.pull-right Log my workout
+    .col-xs-12.col-md-4

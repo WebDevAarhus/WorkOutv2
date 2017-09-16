@@ -17,15 +17,7 @@ module.exports.programsList = function(req,res){
         }else{
             sendJsonResponse(res, 404,"no programs found");
         }
-/*            title:'Programs list',
-            sidebar: 'Hello and welcome to programs list page!',
-            pageHeader:{
-                strapline: "Below you can see the workouts list"
-            },
-            programs
-        });*/
     });
-    
 };
 
 /*GET program info page*/
@@ -45,15 +37,6 @@ module.exports.programInfo = function(req,res){
                 return;
             }
             sendJsonResponse(res, 200, program);
-            /* {
-                    title:'Program info',
-                    pageHeader:{
-                        title:program.name,
-                        author:program.author
-                    },
-                    program
-                }
-            */
         });
     }else{
         sendJsonResponse(res, 404,{

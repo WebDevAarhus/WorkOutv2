@@ -1,9 +1,4 @@
-manage 'others' controller
-
-
 no update for exercise (page 196 MEAN)
 no delete for exercise nor program (not in requirements)
 
-
-in programs.js- programInfo returns json object with just program, 
-    change that so that it has also a title and header
+function getProgramInfo and _showError is doubled (programs and exercises)

@@ -6,18 +6,6 @@ var sendJsonResponse = function(res, status, content) {
     res.json(content);
 };
 
-/*GET add exercise page
-module.exports.addExerciseForm = function(req,res){
-    res.status(200);
-    res.json({"status" : "success"});
-    res.render('program-exercise-form', {
-        title:'Add exercise',
-        pageHeader:{
-            title:'Add an exercise'
-        }
-    })
-};*/
-
 var doAddExercise = function(req, res, program){
     if(!program){
         sendJsonResponse(res, 404,{
@@ -44,7 +32,7 @@ var doAddExercise = function(req, res, program){
     }
 }
 
-/*POST actual exercise creation page*/
+/*POST actual exercise creation */
 module.exports.createExercise = function(req,res){
     var programid = req.params.programid;
     if(programid){
@@ -103,14 +91,6 @@ module.exports.exerciseInfo = function(req,res){
                     "message": "no exercises found"
                 });
             }
-            /*
-                    title:'Program info',
-                    pageHeader:{
-                        title:program.name,
-                        author:program.author
-                    }
-      
-            */
         });
     }else{
         sendJsonResponse(res, 404,{

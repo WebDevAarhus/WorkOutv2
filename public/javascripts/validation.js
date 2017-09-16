@@ -1,6 +1,6 @@
 $('#addExerciseForm').submit(function (e) {
     $('.alert.alert-danger').hide();
-    if (!$('input#name').val() || !$('input#repstime').val() || !$('input#description').val()) {
+    if (!$('input#name').val() || !$('input#repstime').val()|| !$('input#sets').val()) {
         if ($('.alert.alert-danger').length) {
             $('.alert.alert-danger').show();
         } else {

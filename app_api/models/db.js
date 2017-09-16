@@ -3,7 +3,7 @@ var gracefulShutdown;
 var dbURI = 'mongodb://localhost/programs2';
 if (process.env.NODE_ENV === 'production') {
     //dbURI = process.env.MONGOLAB_URI;
-    dbURI = "mongodb://masterworkouter:letsW0rkOut@ds127864.mlab.com:27864/workout2";
+    dbURI = "mongodb://masterworkouter:letsW0rkOut@ds127864.mlab.com:27864/workout";
     //dbURI = "mongodb://workouter:nosiemci1!@ds133004.mlab.com:33004/workout";
 }
 
